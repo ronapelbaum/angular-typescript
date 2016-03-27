@@ -1,9 +1,13 @@
-import 'lib.ts';
+/// <reference path="lib.ts" />
+/// <reference path="utils/utils.module.ts" />
+
+//import 'lib.ts';
+
 
 function App () {
   return {
     restrict: 'E',
-    template: '<h1>{{ App.what }}</h1>',
+    template: '<h1>{{ App.message }}</h1>',
     controller: AppController,
     controllerAs: 'App'
   }
@@ -11,15 +15,15 @@ function App () {
 
 class AppController {
 
-  what: string;
+  message: string;
 
   constructor() {
-    this.what = "Angular + TypeScript + Webpcak Minimal Starter!";
+    this.message = "Angular + TypeScript + Webpcak Minimal Starter!";
   }
 
 }
 
-angular.module('app', [])
+angular.module('app', ['utils'])
 .directive('app', App);
 
-angular.bootstrap(document, ['app']);
+//angular.bootstrap(document, ['app']);
