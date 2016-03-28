@@ -1,18 +1,12 @@
-class Greeter{
-    private name;
-    constructor(name:string){
-        this.name = name;
-    }
-    public greet():string{
-        return "Hello " + this.name;
-    }
-}
+///<reference path="NameService.ts"/>
+class Greeter {
+    private name:string;
 
-function GreeterDirective(){
-    return {
-        template:'{{greeter.greet()}}',
-        scope:{name:'"bob"'},
-        controller: Greeter,
-        controllerAs: 'greeter'
+    constructor(NameService:NameService) {
+        this.name = NameService.getName();
+    }
+
+    public greet():string {
+        return "Hello " + this.name;
     }
 }

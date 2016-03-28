@@ -1,7 +1,7 @@
 /// <reference path="../lib.ts" />
+///<reference path="NameService.ts"/>
+///<reference path="GreeterDirective.ts"/>
 
-//import 'angular'
-//import {GreeterDirective} from "./Greeter";
-
-angular.module('utils',[])
-    .directive('greeter',GreeterDirective);
+angular.module('utils', [])
+    .service('NameService', NameService)
+    .directive('greeter', GreeterDirective);
