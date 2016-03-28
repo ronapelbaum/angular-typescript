@@ -36,7 +36,7 @@ module.exports = function (grunt) {
                     startTag: '<!--SCRIPTS-->',
                     endTag: '<!--SCRIPTS END-->',
                     fileTmpl: '<script type="text/javascript" src="%s"></script>',
-                    appRoot: 'app/'
+                    appRoot: dist.main
                 },
                 files: {
                     // Target-specific file lists and/or options go here.
