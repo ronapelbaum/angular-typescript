@@ -1,24 +1,33 @@
 module.exports = function (grunt) {
+    const src = {
+        ts: "src/**/*.ts",
+        index: "src/index.html"
+    };
+    const dist = {
+        main: "dist/",
+        lib: "dist/lib/",
+        ts: "dist/ts",
+        index: "dist/index.html"
+    };
+
     grunt.initConfig({
-        'src': {
-            ts: "src/**/*.ts",
-            index: 'src/index.html'
-        },
-        'dist': {
-            'ts': 'dist/ts',
-            index: 'dist/index.html'
+        clean: {
+            folder: dist.main
         },
         'ts': {
             default: {
-                src: ["<%=src.ts%>"],
-                outDir: "<%=dist.ts%>"
+                src: [src.ts],
+                outDir: dist.ts
             }
         },
         'copy': {
-            files: {
-                dest: '<%=dist.index%>',
-                src: ["<%=src.index%>"]
-
+            index: {
+                src: [src.index],
+                dest: dist.index
+            },
+            lib: {
+                src: "node_modules/angular/angular.js",
+                dest: dist.lib
             }
         },
         'sails-linker': {
@@ -31,15 +40,16 @@ module.exports = function (grunt) {
                 },
                 files: {
                     // Target-specific file lists and/or options go here.
-                    '<%=dist.index%>': ["node_modules/angular/angular.js", "<%=dist.ts%>/**/*.js"]
+                    'dist/index.html': [dist.lib + "/**/*.js", dist.ts + "/**/*.js"]
                 }
             }
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks("grunt-ts");
-    grunt.loadNpmTasks('grunt-copy');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sails-linker');
 
-    grunt.registerTask("default", ["ts", "copy", "sails-linker"]);
+    grunt.registerTask("default", ["clean", "ts", "copy", "sails-linker"]);
 };

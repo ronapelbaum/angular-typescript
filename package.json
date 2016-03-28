@@ -15,6 +15,7 @@
     "grunt-sails-linker": "~0.10.1",
     "definitely-typed-jquery": "~1.0.0",
     "definitely-typed-angular": "~1.0.1",
-    "grunt-copy": "~0.1.0"
+    "grunt-contrib-clean": "~1.0.0",
+    "grunt-contrib-copy": "~1.0.0"
   }
 }
