@@ -23,7 +23,9 @@ module.exports = function (grunt) {
         'ts': {
             default: {
                 src: [src.ts],
-                outDir: dist.tsDir
+                outDir: dist.tsDir,
+                target: "es5",
+                removeComments: false
             }
         },
         'copy': {
