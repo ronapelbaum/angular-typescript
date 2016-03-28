@@ -1,5 +1,6 @@
 module.exports = function (grunt) {
     const src = {
+        main: "src/**/*",
         ts: "src/**/*.ts",
         index: "src/index.html"
     };
@@ -43,6 +44,12 @@ module.exports = function (grunt) {
                     'dist/index.html': [dist.lib + "/**/*.js", dist.ts + "/**/*.js"]
                 }
             }
+        },
+        watch: {
+            all: {
+                files: src.main,
+                tasks: "default"
+            }
         }
     });
 
@@ -50,6 +57,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-ts");
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-sails-linker');
+    grunt.loadNpmTasks('grunt-sails-linker');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask("default", ["clean", "ts", "copy", "sails-linker"]);
 };
