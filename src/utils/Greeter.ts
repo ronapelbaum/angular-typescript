@@ -4,9 +4,11 @@ class Greeter {
 
     constructor(NameService:NameService) {
         this.name = NameService.getName();
+        console.log('Greeter ctor',this.name);
     }
 
     public greet():string {
+        console.log('greet()', this.name);
         return "Hello " + this.name;
     }
 }
