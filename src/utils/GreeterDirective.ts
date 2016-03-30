@@ -3,7 +3,7 @@ function GreeterDirective() {
     return {
         template: '{{greeter.greet()}}',
         //scope: {dataService: 'NameService'},
-        controller: Greeter,
+        controller: 'Greeter',
         controllerAs: 'greeter'
     }
 }
