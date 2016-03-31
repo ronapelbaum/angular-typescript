@@ -1,19 +1,22 @@
-class NameService {
-    private counter = 0;
+module myapp.Utils {
+    export class NameService {
 
-    constructor() {
-        console.log('NameService ctor');
-    }
+        private counter = 0;
 
-    getName():string {
-        this.counter++;
-        var result;
-        if (this.counter % 2 == 0)
-            result = "Bob";
-        else
-            result = "Alice";
-        console.log('getName()', result + this.counter.toString());
+        constructor() {
+            console.log('NameService ctor');
+        }
 
-        return result + this.counter.toString();
+        getName():string {
+            this.counter++;
+            var result;
+            if (this.counter % 2 == 0)
+                result = "Bob";
+            else
+                result = "Alice";
+            console.log('getName()', result + this.counter.toString());
+
+            return result + this.counter.toString();
+        }
     }
 }
