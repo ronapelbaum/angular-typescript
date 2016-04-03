@@ -1,7 +1,10 @@
 module.exports = function (grunt) {
     const src = {
         main: "src/**/*",
-        ts: "src/**/*.ts",
+        ts: [
+            "src/**/*.ts",
+            "!src/**/*.test.ts"
+        ],
         indexFile: "src/index.html",
         lib:[
             "node_modules/angular/angular.js"
@@ -22,7 +25,7 @@ module.exports = function (grunt) {
         },
         'ts': {
             default: {
-                src: [src.ts],
+                src: src.ts,
                 outDir: dist.tsDir,
                 options:{
                     target: "es5",
