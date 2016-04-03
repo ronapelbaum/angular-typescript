@@ -1,4 +1,4 @@
-module myapp.Utils {
+module myapp.utils {
     export class NameService {
 
         private counter = 0;

@@ -1,13 +1,15 @@
-class TitleController {
+module myapp.title {
+    export class TitleController {
 
-    message:string;
+        message:string;
 
-    static $inject = ['$timeout'];
-    static mid = 'TitleController';
+        static $inject = ['$timeout'];
+        static mid = 'TitleController';
 
-    constructor(private $timeout:ng.ITimeoutService) {
-        this.message = "Angular + TypeScript + Webpcak Minimal Starter!";
-        $timeout(()=>this.message = "goodbye", 2000);
+        constructor(private $timeout:ng.ITimeoutService) {
+            this.message = "Angular + TypeScript + Webpcak Minimal Starter!";
+            $timeout(()=>this.message = "goodbye", 2000);
+        }
+
     }
-
 }

@@ -1,4 +1,4 @@
-module myapp.Utils{
+module myapp.utils{
     export class Greeter {
         private name:string;
 
